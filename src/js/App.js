@@ -6,7 +6,7 @@ import SideBar from "../components/SideBar";
 export default function App() {
   return (
     <Router>
-      <SideBar />
+      {/* <SideBar /> */}
       <Switch>
         <Route path="/">
           <Home />
