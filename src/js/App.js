@@ -2,11 +2,12 @@ import React from "react";
 import { HashRouter as Router, Switch, Route } from "react-router-dom";
 import Home from "../views/Home";
 import SideBar from "../components/SideBar";
+import "./App.css";
 
 export default function App() {
   return (
     <Router>
-      {/* <SideBar /> */}
+      <SideBar />
       <Switch>
         <Route path="/">
           <Home />
