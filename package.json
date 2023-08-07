@@ -23,7 +23,6 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^4.10.1",
-    "react-pro-sidebar": "^1.1.0-alpha.1",
     "react-router-dom": "^5.2.0",
     "sass": "^1.64.1",
     "sass-loader": "^13.3.2",

@@ -5,19 +5,19 @@ import { ImHome3, ImAddressBook, ImAlarm, ImKey, ImCog } from "react-icons/im";
 export default function SideBar() {
   return (
     <div className="sidebar">
-      <Link to="/Tarefas">
+      <Link to="/">
         <ImHome3 />
       </Link>
-      <Link to="/Tarefas">
+      <Link to="/task">
         <ImAddressBook />
       </Link>
-      <Link to="/Tarefas">
+      <Link to="/password">
         <ImKey />
       </Link>
-      <Link to="/Tarefas">
+      <Link to="/reminder">
         <ImAlarm />
       </Link>
-      <Link to="/Tarefas">
+      <Link to="/config">
         <ImCog />
       </Link>
     </div>
