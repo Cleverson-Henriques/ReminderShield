@@ -1,15 +1,17 @@
 import React from "react";
+import "./SideBar.css";
 import { Link } from "react-router-dom";
 import { ImHome3, ImAddressBook, ImAlarm, ImKey, ImCog } from "react-icons/im";
+import { BiTask } from "react-icons/bi";
 
 export default function SideBar() {
   return (
     <div className="sidebar">
       <Link to="/">
-        <ImHome3 />
+        <ImAddressBook />
       </Link>
       <Link to="/task">
-        <ImAddressBook />
+        <BiTask />
       </Link>
       <Link to="/password">
         <ImKey />

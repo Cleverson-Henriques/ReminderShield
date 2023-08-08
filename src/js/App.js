@@ -12,32 +12,36 @@ import { HashRouter as Router, Switch, Route } from "react-router-dom";
 export default function App() {
   return (
     <Router>
-      <SideBar />
-      <Switch>
-        <Route path="/config">
-          <Configurações />
-        </Route>
+      <div className="main">
+        <SideBar />
+        <div className="content">
+          <Switch>
+            <Route path="/config">
+              <Configurações />
+            </Route>
 
-        <Route path="/task">
-          <Tarefas />
-        </Route>
+            <Route path="/task">
+              <Tarefas />
+            </Route>
 
-        <Route path="/contact">
-          <Contatos />
-        </Route>
+            <Route path="/contact">
+              <Contatos />
+            </Route>
 
-        <Route path="/reminder">
-          <Lembrete />
-        </Route>
+            <Route path="/reminder">
+              <Lembrete />
+            </Route>
 
-        <Route path="/password">
-          <Senhas />
-        </Route>
+            <Route path="/password">
+              <Senhas />
+            </Route>
 
-        <Route path="/">
-          <Home />
-        </Route>
-      </Switch>
+            <Route path="/">
+              <Home />
+            </Route>
+          </Switch>
+        </div>
+      </div>
     </Router>
   );
 }

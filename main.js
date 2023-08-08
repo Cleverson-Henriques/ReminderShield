@@ -1,6 +1,6 @@
 // Main Process
-const { app, BrowserWindow, ipcMain, Notification } = require('electron');
-const path = require('path');
+const { app, BrowserWindow, ipcMain, Notification } = require("electron");
+const path = require("path");
 const isDev = !app.isPackaged;
 
 function createWindow() {
@@ -13,18 +13,18 @@ function createWindow() {
       nodeIntegration: false,
       worldSafeExecuteJavaScript: true,
       contextIsolation: true,
-      preload: path.join(__dirname, 'preload.js')
-    }
-  })
+      preload: path.join(__dirname, "preload.js"),
+    },
+  });
 
-  win.loadFile('index.html')
+  win.loadFile("index.html");
   isDev && win.webContents.openDevTools();
 }
 
 if (isDev) {
-  require('electron-reload')(__dirname, {
-    electron: path.join(__dirname, 'node_modules', '.bin', 'electron')
-  })
+  require("electron-reload")(__dirname, {
+    electron: path.join(__dirname, "node_modules", ".bin", "electron"),
+  });
 }
 
 app.whenReady().then(createWindow);
@@ -33,19 +33,33 @@ app.whenReady().then(createWindow);
 //   new Notification({title: 'Notification', body: message}).show();
 // })
 
-ipcMain.on('app-quit', () => {
+ipcMain.on("app-quit", () => {
   app.quit();
-})
+});
 
-
-app.on('window-all-closed', () => {
-  if (process.platform !== 'darwin') {
+app.on("window-all-closed", () => {
+  if (process.platform !== "darwin") {
     app.quit();
   }
-})
+});
 
-app.on('activate', () => {
+app.on("activate", () => {
   if (BrowserWindow.getAllWindows().length === 0) {
     createWindow();
   }
-})
+});
+
+ipcMain.on("save-data", (_, data) => {
+  const filePath = path.join(app.getPath("userData"), "todo-list-data.json");
+  fs.writeFileSync(filePath, JSON.stringify(data));
+});
+
+ipcMain.on("load-data", (event) => {
+  const filePath = path.join(app.getPath("userData"), "todo-list-data.json");
+  try {
+    const data = fs.readFileSync(filePath, "utf8");
+    event.reply("loaded-data", JSON.parse(data));
+  } catch (err) {
+    event.reply("loaded-data", []);
+  }
+});
