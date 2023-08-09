@@ -7,20 +7,20 @@ import { BiTask } from "react-icons/bi";
 export default function SideBar() {
   return (
     <div className="sidebar">
-      <Link to="/">
-        <ImAddressBook />
+      <Link to="/" className="Button-sidebar">
+        <ImAddressBook/>
       </Link>
-      <Link to="/task">
-        <BiTask />
+      <Link to="/task" className="Button-sidebar">
+        <BiTask/>
       </Link>
-      <Link to="/password">
-        <ImKey />
+      <Link to="/password" className="Button-sidebar">
+        <ImKey/>
       </Link>
-      <Link to="/reminder">
+      <Link to="/reminder" className="Button-sidebar">
         <ImAlarm />
       </Link>
-      <Link to="/config">
-        <ImCog />
+      <Link to="/config" className="Button-sidebar">
+        <ImCog/>
       </Link>
     </div>
   );
