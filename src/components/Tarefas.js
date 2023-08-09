@@ -1,14 +1,15 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
+import "./Tarefas.css";
 
 const TodoList = () => {
-  const [task, setTask] = useState('');
+  const [task, setTask] = useState("");
   const [tasks, setTasks] = useState([]);
 
   // Função para adicionar a tarefa à lista
   const addTask = () => {
-    if (task.trim() === '') return; 
+    if (task.trim() === "") return;
     setTasks([...tasks, task]);
-    setTask(''); 
+    setTask("");
   };
 
   // Função para remover uma tarefa da lista
@@ -19,7 +20,7 @@ const TodoList = () => {
 
   // Efeito para carregar a lista de tarefas do Local Storage na inicialização
   useEffect(() => {
-    const storedTasks = localStorage.getItem('tasks');
+    const storedTasks = localStorage.getItem("tasks");
     if (storedTasks) {
       setTasks(JSON.parse(storedTasks));
     }
@@ -27,29 +28,39 @@ const TodoList = () => {
 
   // Efeito para atualizar o Local Storage sempre que a lista de tarefas mudar
   useEffect(() => {
-    localStorage.setItem('tasks', JSON.stringify(tasks));
+    localStorage.setItem("tasks", JSON.stringify(tasks));
   }, [tasks]);
 
   return (
-    <div>
-      <h2>Todo List</h2>
-      <input
-        type="text"
-        value={task}
-        onChange={(e) => setTask(e.target.value)}
-        placeholder="Digite a tarefa"
-      />
-      <button onClick={addTask}>Adicionar</button>
+    <>
+      <div className="addTask">
+        <div className="TaskH1">
+          <h1>Todo List</h1>
+        </div>
 
-      <ul>
-        {tasks.map((tarefa, index) => (
-          <li key={index}>
-            {tarefa}
-            <button onClick={() => removeTask(index)}>Remover</button>
-          </li>
-        ))}
-      </ul>
-    </div>
+        <div className="inputTaskContainer">
+          <input
+            type="text"
+            value={task}
+            onChange={(e) => setTask(e.target.value)}
+            placeholder="Digite a tarefa"
+            className="inputTask"
+          />
+          <button onClick={addTask} className='ButtonTask'>Adicionar</button>
+        </div>
+      </div>
+
+      <div className="Tasks">
+        <ul>
+          {tasks.map((tarefa, index) => (
+            <li key={index}>
+              {tarefa}
+              <button onClick={() => removeTask(index)}>Remover</button>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </>
   );
 };
 

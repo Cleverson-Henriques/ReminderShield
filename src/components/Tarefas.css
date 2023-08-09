@@ -1,0 +1,62 @@
+* {
+  list-style: none;
+  text-decoration: none;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.addTask {
+  height: 30%;
+  width: 98%;
+  background: #100f10;
+  /* border: 2px solid rgb(247, 0, 0); */
+  border-radius: 10px;
+  padding: 10px;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.6);
+}
+
+.TaskH1 {
+  padding: 1%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(#fff, 0.96);
+  /* border: 2px solid rgb(247, 0, 0); */
+  border-bottom: 2px solid rgba(#fff, 0.96);
+}
+
+.inputTaskContainer {
+  margin: 15px 0;
+  width: 100%;
+  display: flex;
+}
+
+.inputTask {
+  height: 32px;
+  width: 85%;
+  padding: 0 10px;
+  border-radius: 5px;
+  border: none;
+  background-color: #fff;
+  font-size: 16px;
+  flex: 2;
+  margin: 2px;
+}
+
+.ButtonTask {
+  transition: all 0.5s ease;
+  color: rgba(#000000, 0.96);
+  text-transform: uppercase;
+  text-align: center;
+  line-height: 1;
+  background-color: #fff;
+  padding: 5px;
+  outline: none;
+  border-radius: 4px;
+}
+
+.ButtonTask:hover {
+  color: #fff;
+  background-color: #8739f9;
+}
